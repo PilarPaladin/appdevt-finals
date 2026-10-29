@@ -1,0 +1,12 @@
+# UiPath generated/local output
+.local/
+
+# AI assistant instructions and workspace state
+.claude/
+AGENTS.md
+CLAUDE.md
+.ai/
+.autopilot/
+.cursor/
+.windsurf/
+.github/copilot-instructions.md

@@ -1,0 +1,25 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "activityDisplayName": "Send Gmail Reminder (disabled by default)",
+      "activityId": "SendEmailConnections_1",
+      "resource": "Connection",
+      "key": "bcf7b530-68e3-4af1-8327-73b131af4bb2",
+      "id": "Connectionbcf7b530-68e3-4af1-8327-73b131af4bb2bcf7b530-68e3-4af1-8327-73b131af4bb2False",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "bcf7b530-68e3-4af1-8327-73b131af4bb2",
+          "isExpression": false,
+          "displayName": "Connection",
+          "description": "The connection to be used"
+        }
+      },
+      "metadata": {
+        "BindingsVersion": "2.2",
+        "Connector": "uipath-google-gmail",
+        "UseConnectionService": "True"
+      }
+    }
+  ]
+}
