@@ -69,7 +69,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="801,9522" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="605.3333333333333,7785.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_ReportingMonth" />
       <Variable x:TypeArguments="s:DateTime" Name="dt_ReportingMonthDate" />
@@ -100,20 +100,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[Not bool_IsValidReportingMonth]" DisplayName="Repeat Until Reporting Month Is Valid" sap:VirtualizedContainerService.HintSize="596,1326" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[Not bool_IsValidReportingMonth]" DisplayName="Repeat Until Reporting Month Is Valid" sap:VirtualizedContainerService.HintSize="596,1324.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Validate Reporting Month Input" sap:VirtualizedContainerService.HintSize="486,1194.5" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence DisplayName="Validate Reporting Month Input" sap:VirtualizedContainerService.HintSize="486,1192.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Reporting Month" sap:VirtualizedContainerService.HintSize="452,277" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[str_ReportingMonthPrompt]" Title="LAMP Office - Student Assistant DTR" TopMost="True">
+          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Reporting Month" sap:VirtualizedContainerService.HintSize="452,278" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[str_ReportingMonthPrompt]" Title="LAMP Office - Student Assistant DTR" TopMost="True">
             <ui:InputDialog.Result>
               <OutArgument x:TypeArguments="x:String">[str_ReportingMonth]</OutArgument>
             </ui:InputDialog.Result>
           </ui:InputDialog>
-          <Assign DisplayName="Trim Reporting Month" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Trim Reporting Month" sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[str_ReportingMonth]</OutArgument>
             </Assign.To>
@@ -121,7 +121,7 @@
               <InArgument x:TypeArguments="x:String">[If(str_ReportingMonth Is Nothing, String.Empty, str_ReportingMonth.Trim())]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set Reporting Month Validation Result" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_21">
+          <Assign DisplayName="Set Reporting Month Validation Result" sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_21">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[bool_IsValidReportingMonth]</OutArgument>
             </Assign.To>
@@ -129,7 +129,7 @@
               <InArgument x:TypeArguments="x:Boolean">[Not String.IsNullOrWhiteSpace(str_ReportingMonth) AndAlso DateTime.TryParseExact(str_ReportingMonth, "MMMM yyyy", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.AllowWhiteSpaces, dt_ReportingMonthDate) AndAlso dt_ReportingMonthDate.Date &lt;= DateTime.Today.Date]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[Not bool_IsValidReportingMonth]" DisplayName="If Reporting Month Is Invalid" sap:VirtualizedContainerService.HintSize="452,505.5" sap2010:WorkflowViewState.IdRef="If_5">
+          <If Condition="[Not bool_IsValidReportingMonth]" DisplayName="If Reporting Month Is Invalid" sap:VirtualizedContainerService.HintSize="452,501.3333333333333" sap2010:WorkflowViewState.IdRef="If_5">
             <If.Then>
               <Sequence DisplayName="Show Invalid Reporting Month Message" sap:VirtualizedContainerService.HintSize="450,350.5" sap2010:WorkflowViewState.IdRef="Sequence_14">
                 <sap:WorkflowViewStateService.ViewState>
@@ -152,7 +152,7 @@
         </Sequence>
       </ui:InterruptibleDoWhile.Body>
     </ui:InterruptibleDoWhile>
-    <Assign DisplayName="Parse Reporting Month Date" sap:VirtualizedContainerService.HintSize="596,176" sap2010:WorkflowViewState.IdRef="Assign_23">
+    <Assign DisplayName="Parse Reporting Month Date" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_23">
       <Assign.To>
         <OutArgument x:TypeArguments="s:DateTime">[dt_ReportingMonthDate]</OutArgument>
       </Assign.To>
@@ -160,7 +160,7 @@
         <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(str_ReportingMonth, "MMMM yyyy", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.AllowWhiteSpaces)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Calculate First Day of Following Month" sap:VirtualizedContainerService.HintSize="596,176" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Calculate First Day of Following Month" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="s:DateTime">[dt_NextMonthFirstDate]</OutArgument>
       </Assign.To>
@@ -168,7 +168,7 @@
         <InArgument x:TypeArguments="s:DateTime">[New DateTime(dt_ReportingMonthDate.Year, dt_ReportingMonthDate.Month, 1).AddMonths(1)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Calculate Days to First Wednesday" sap:VirtualizedContainerService.HintSize="596,176" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Calculate Days to First Wednesday" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[int_DaysToFirstWednesday]</OutArgument>
       </Assign.To>
@@ -176,7 +176,7 @@
         <InArgument x:TypeArguments="x:Int32">[(CInt(DayOfWeek.Wednesday) - CInt(dt_NextMonthFirstDate.DayOfWeek) + 7) Mod 7]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Calculate Second Wednesday Deadline" sap:VirtualizedContainerService.HintSize="596,176" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Calculate Second Wednesday Deadline" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="s:DateTime">[dt_DeadlineDate]</OutArgument>
       </Assign.To>
@@ -184,7 +184,7 @@
         <InArgument x:TypeArguments="s:DateTime">[dt_NextMonthFirstDate.AddDays(int_DaysToFirstWednesday + 7)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Set Workbook Path" sap:VirtualizedContainerService.HintSize="596,176" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Set Workbook Path" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str_WorkbookPath]</OutArgument>
       </Assign.To>
@@ -192,31 +192,31 @@
         <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(Environment.CurrentDirectory, "LAMP-DTR-Tracker.xlsx")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ueab:ExcelProcessScopeX ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" DisplayAlerts="False" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="596,7293" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ProcessMode="AlwaysCreateNew" ShowExcelWindow="False">
+    <ueab:ExcelProcessScopeX ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" DisplayAlerts="False" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="596,5554.666666666667" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ProcessMode="AlwaysCreateNew" ShowExcelWindow="False">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Excel Process Body" sap:VirtualizedContainerService.HintSize="594,7223" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Excel Process Body" sap:VirtualizedContainerService.HintSize="594,5484.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="560,7163" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[str_WorkbookPath]">
+            <ueab:ExcelApplicationCard CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="560,5424.666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[str_WorkbookPath]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Excel Workbook Body" sap:VirtualizedContainerService.HintSize="558,6941.5" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence DisplayName="Excel Workbook Body" sap:VirtualizedContainerService.HintSize="558,5202" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:ReadRangeX DisplayName="Read Roster" sap:VirtualizedContainerService.HintSize="524,171" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;Roster&quot;).Range(&quot;A1&quot;)]" SaveTo="[dt_Roster]" VisibleOnly="False" />
+                    <ueab:ReadRangeX DisplayName="Read Roster" sap:VirtualizedContainerService.HintSize="524,172" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;Roster&quot;).Range(&quot;A1&quot;)]" SaveTo="[dt_Roster]" VisibleOnly="False" />
                     <ueab:ReadRangeX DisplayName="Read Intake" sap:VirtualizedContainerService.HintSize="524,171" sap2010:WorkflowViewState.IdRef="ReadRangeX_2" Range="[Excel.Sheet(&quot;Intake&quot;).Range(&quot;A1&quot;)]" SaveTo="[dt_Intake]" VisibleOnly="False" />
                     <ueab:ReadRangeX DisplayName="Read Tracker Headers" sap:VirtualizedContainerService.HintSize="524,171" sap2010:WorkflowViewState.IdRef="ReadRangeX_3" Range="[Excel.Sheet(&quot;Tracker&quot;).Range(&quot;A1:F1&quot;)]" SaveTo="[dt_Tracker]" VisibleOnly="False" />
                     <ueab:ReadRangeX DisplayName="Read Email Log" sap:VirtualizedContainerService.HintSize="524,171" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Excel.Sheet(&quot;EmailLog&quot;).Range(&quot;A1&quot;)]" SaveTo="[dt_EmailLog]" VisibleOnly="False" />
@@ -381,7 +381,7 @@
                     <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;Tracker&quot;).Range(&quot;A2&quot;)]" DisplayName="Write Tracker Rows" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="524,223.5" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt_Tracker]" />
                     <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Tracker&quot;).Cell(&quot;I2&quot;)]" DisplayName="Write Submitted Summary Count" sap:VirtualizedContainerService.HintSize="524,223.5" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[int_SubmittedCount]" />
                     <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Tracker&quot;).Cell(&quot;I3&quot;)]" DisplayName="Write Submitted Late Summary Count" sap:VirtualizedContainerService.HintSize="524,223.5" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[int_LateCount]" />
-                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Tracker&quot;).Cell(&quot;I4&quot;)]" DisplayName="Write Missing Summary Count" sap:VirtualizedContainerService.HintSize="524,223.5" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[int_MissingCount]" />
+                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Tracker&quot;).Cell(&quot;I4&quot;)]" DisplayName="Write Missing Summary Count" sap:VirtualizedContainerService.HintSize="524,224.66666666666666" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[int_MissingCount]" />
                     <ui:FilterDataTable SelectColumns="{x:Null}" DataTable="[dt_Tracker]" DisplayName="Filter Missing DTRs" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="524,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_MissingDTRs]" SelectColumnsMode="Remove">
                       <ui:FilterDataTable.Filters>
                         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
@@ -396,19 +396,19 @@
                         </scg:List>
                       </ui:FilterDataTable.Filters>
                     </ui:FilterDataTable>
-                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_MissingDTRs]" DisplayName="For Each Missing DTR" sap:VirtualizedContainerService.HintSize="524,1831" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_MissingDTRs]" DisplayName="For Each Missing DTR" sap:VirtualizedContainerService.HintSize="488,1770" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Process Missing DTR" sap:VirtualizedContainerService.HintSize="486,1648" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <Sequence DisplayName="Process Missing DTR" sap:VirtualizedContainerService.HintSize="486,1618" sap2010:WorkflowViewState.IdRef="Sequence_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="Validate Email Address" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_19">
+                            <Assign DisplayName="Validate Email Address" sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_19">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[bool_HasValidEmail]</OutArgument>
                               </Assign.To>
@@ -416,7 +416,7 @@
                                 <InArgument x:TypeArguments="x:Boolean">[Not String.IsNullOrWhiteSpace(CurrentRow("Email").ToString.Trim) AndAlso CurrentRow("Email").ToString.Trim.Contains("@")]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign DisplayName="Check Duplicate Reminder" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_20">
+                            <Assign DisplayName="Check Duplicate Reminder" sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_20">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[bool_AlreadyReminded]</OutArgument>
                               </Assign.To>
@@ -424,15 +424,15 @@
                                 <InArgument x:TypeArguments="x:Boolean">[dt_EmailLog IsNot Nothing AndAlso dt_EmailLog.Select("[Student ID] = '" &amp; CurrentRow("Student ID").ToString.Trim.Replace("'", "''") &amp; "' AND [Reporting Month] = '" &amp; str_ReportingMonth.Trim.Replace("'", "''") &amp; "' AND [Email Status] = 'Sent'").Length &gt; 0]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <If Condition="[bool_EnableReminders AndAlso bool_HasValidEmail AndAlso Not bool_AlreadyReminded AndAlso DateTime.Today > dt_DeadlineDate.Date]" DisplayName="If Reminder Eligible" sap:VirtualizedContainerService.HintSize="452,1236" sap2010:WorkflowViewState.IdRef="If_4">
+                            <If Condition="[bool_EnableReminders AndAlso bool_HasValidEmail AndAlso Not bool_AlreadyReminded AndAlso DateTime.Today &gt; dt_DeadlineDate.Date]" DisplayName="If Reminder Eligible" sap:VirtualizedContainerService.HintSize="452,1204.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
                               <If.Then>
-                                <Sequence DisplayName="Send Reminder" sap:VirtualizedContainerService.HintSize="450,846" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <Sequence DisplayName="Send Reminder" sap:VirtualizedContainerService.HintSize="450,847.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Body="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" ConnectionId="bcf7b530-68e3-4af1-8327-73b131af4bb2" DisplayName="Send Gmail Reminder (disabled by default)" sap:VirtualizedContainerService.HintSize="416,396.5" sap2010:WorkflowViewState.IdRef="SendEmailConnections_1" Importance="Normal" InputType="TEXT" SaveAsDraft="False" Subject="[&quot;[LAMP Office] Reminder: Missing DTR Submission for &quot; &amp; str_ReportingMonth]" TextBody="[&quot;Dear &quot; &amp; CurrentRow(&quot;Name&quot;).ToString.Trim &amp; &quot;,&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;The LAMP Office is reminding you that your Student Assistant Daily Time Record (DTR) for &quot; &amp; str_ReportingMonth &amp; &quot; has not yet been received.&quot; &amp; Environment.NewLine &amp; &quot;The submission deadline was &quot; &amp; dt_DeadlineDate.ToString(&quot;MMMM dd, yyyy&quot;) &amp; &quot;.&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;Please submit your signed DTR to the LAMP Office immediately.&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;Thank you,&quot; &amp; Environment.NewLine &amp; &quot;LAMP Office&quot;]" To="[New List(Of String) From {CurrentRow(&quot;Email&quot;).ToString.Trim}]" UseConnectionService="True">
+                                  <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Body="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" ConnectionId="c5179af5-8f85-442c-947a-f408a9104c1a" DisplayName="Send Gmail Reminder (disabled by default)" sap:VirtualizedContainerService.HintSize="416,397.3333333333333" sap2010:WorkflowViewState.IdRef="SendEmailConnections_1" Importance="Normal" InputType="TEXT" SaveAsDraft="False" Subject="[&quot;[LAMP Office] Reminder: Missing DTR Submission for &quot; &amp; str_ReportingMonth]" TextBody="[&quot;Dear &quot; &amp; CurrentRow(&quot;Name&quot;).ToString.Trim &amp; &quot;,&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;The LAMP Office is reminding you that your Student Assistant Daily Time Record (DTR) for &quot; &amp; str_ReportingMonth &amp; &quot; has not yet been received.&quot; &amp; Environment.NewLine &amp; &quot;The submission deadline was &quot; &amp; dt_DeadlineDate.ToString(&quot;MMMM dd, yyyy&quot;) &amp; &quot;.&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;Please submit your signed DTR to the LAMP Office immediately.&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;Thank you,&quot; &amp; Environment.NewLine &amp; &quot;LAMP Office&quot;]" To="[New List(Of String) From {CurrentRow(&quot;Email&quot;).ToString.Trim}]" UseConnectionService="True">
                                     <uga:SendEmailConnections.Attachments>
                                       <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
                                     </uga:SendEmailConnections.Attachments>
@@ -451,7 +451,7 @@
                                       </usau:BackupSlot>
                                     </uga:SendEmailConnections.InputTypeBackup>
                                   </uga:SendEmailConnections>
-                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {CurrentRow(&quot;Student ID&quot;).ToString.Trim, CurrentRow(&quot;Name&quot;).ToString.Trim, CurrentRow(&quot;Email&quot;).ToString.Trim, str_ReportingMonth, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;), &quot;Sent&quot;}]" DataTable="[dt_EmailLog]" DisplayName="Append Sent EmailLog Row" sap:VirtualizedContainerService.HintSize="416,222.5" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {CurrentRow(&quot;Student ID&quot;).ToString.Trim, CurrentRow(&quot;Name&quot;).ToString.Trim, CurrentRow(&quot;Email&quot;).ToString.Trim, str_ReportingMonth, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;), &quot;Sent&quot;}]" DataTable="[dt_EmailLog]" DisplayName="Append Sent EmailLog Row" sap:VirtualizedContainerService.HintSize="416,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                                   <ui:LogMessage DisplayName="Log Sent Reminder" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Missing DTR reminder prepared for &quot; &amp; CurrentRow(&quot;Name&quot;).ToString.Trim &amp; &quot; at &quot; &amp; CurrentRow(&quot;Email&quot;).ToString.Trim &amp; &quot; for &quot; &amp; str_ReportingMonth]" />
                                 </Sequence>
                               </If.Then>
@@ -470,8 +470,8 @@
                         </ActivityAction>
                       </ui:ForEachRow.Body>
                     </ui:ForEachRow>
-                    <ueab:ClearRangeX DisplayName="Clear Old EmailLog Worksheet Rows" HasHeaders="False" sap:VirtualizedContainerService.HintSize="524,171" sap2010:WorkflowViewState.IdRef="ClearRangeX_2" TargetRange="[Excel.Sheet(&quot;EmailLog&quot;).Range(&quot;A2:F1048576&quot;)]" />
-                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;EmailLog&quot;).Range(&quot;A2&quot;)]" DisplayName="Write Updated EmailLog" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="524,214.5" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="True" Source="[dt_EmailLog]" />
+                    <ueab:ClearRangeX DisplayName="Clear Old EmailLog Worksheet Rows" HasHeaders="False" sap:VirtualizedContainerService.HintSize="524,172" sap2010:WorkflowViewState.IdRef="ClearRangeX_2" TargetRange="[Excel.Sheet(&quot;EmailLog&quot;).Range(&quot;A2:F1048576&quot;)]" />
+                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;EmailLog&quot;).Range(&quot;A2&quot;)]" DisplayName="Write Updated EmailLog" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="524,215.33333333333334" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="True" Source="[dt_EmailLog]" />
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
