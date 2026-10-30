@@ -126,7 +126,7 @@
               <OutArgument x:TypeArguments="x:Boolean">[bool_IsValidReportingMonth]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Boolean">[Not String.IsNullOrWhiteSpace(str_ReportingMonth) AndAlso DateTime.TryParseExact(str_ReportingMonth, "MMMM yyyy", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.AllowWhiteSpaces, dt_ReportingMonthDate)]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean">[Not String.IsNullOrWhiteSpace(str_ReportingMonth) AndAlso DateTime.TryParseExact(str_ReportingMonth, "MMMM yyyy", Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.AllowWhiteSpaces, dt_ReportingMonthDate) AndAlso dt_ReportingMonthDate.Date &lt;= DateTime.Today.Date]</InArgument>
             </Assign.Value>
           </Assign>
           <If Condition="[Not bool_IsValidReportingMonth]" DisplayName="If Reporting Month Is Invalid" sap:VirtualizedContainerService.HintSize="452,505.5" sap2010:WorkflowViewState.IdRef="If_5">
@@ -137,13 +137,13 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Invalid Reporting Month" sap:VirtualizedContainerService.HintSize="416,123.5" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Invalid format. Please enter the reporting month as MMMM yyyy, for example November 2026.&quot;]" TopMost="True" />
+                <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Invalid Reporting Month" sap:VirtualizedContainerService.HintSize="416,123.5" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Invalid reporting month. Enter a valid month in the format MMMM yyyy, and do not use a future month.&quot;]" TopMost="True" />
                 <Assign DisplayName="Set Invalid Reporting Month Prompt" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_22">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[str_ReportingMonthPrompt]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["Invalid format. Try again using MMMM yyyy, for example November 2026:"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["Invalid reporting month. Use MMMM yyyy and choose the current month or an earlier month:"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -462,7 +462,7 @@
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Skipped Reminder" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Reminder skipped for &quot; &amp; CurrentRow(&quot;Name&quot;).ToString.Trim &amp; &quot; (&quot; &amp; CurrentRow(&quot;Student ID&quot;).ToString.Trim &amp; &quot;): &quot; &amp; If(Not bool_EnableReminders, &quot;reminders disabled for construction&quot;, If(Not bool_HasValidEmail, &quot;missing or invalid email address&quot;, &quot;reminder already sent for &quot; &amp; str_ReportingMonth))]" />
+                                  <ui:LogMessage DisplayName="Log Skipped Reminder" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Reminder skipped for &quot; &amp; CurrentRow(&quot;Name&quot;).ToString.Trim &amp; &quot; (&quot; &amp; CurrentRow(&quot;Student ID&quot;).ToString.Trim &amp; &quot;): &quot; &amp; If(Not bool_EnableReminders, &quot;reminders disabled for construction&quot;, If(Not bool_HasValidEmail, &quot;missing or invalid email address&quot;, If(bool_AlreadyReminded, &quot;reminder already sent for &quot; &amp; str_ReportingMonth, If(DateTime.Today.Date &lt;= dt_DeadlineDate.Date, &quot;deadline not reached; reminder due after &quot; &amp; dt_DeadlineDate.ToString(&quot;MMMM dd, yyyy&quot;), &quot;reminder not eligible&quot;))))]" />
                                 </Sequence>
                               </If.Else>
                             </If>
